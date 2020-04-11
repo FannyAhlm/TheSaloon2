@@ -1,0 +1,5 @@
+<div *ngFor="let drink of beverages">
+    <button (click)="selectedDrink(drink.drink)">{{drink.drink}}</button>
+</div>
+<input type="text" [(ngModel)]="newDrink"> 
+<button class="addDrink" (click)="selectedDrink(newDrink)">Another</button>

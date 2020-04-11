@@ -1,0 +1,41 @@
+<div class="dialogueContainer">
+ 
+
+    <div *ngIf="!usedBefore; else noUser">
+        <p>{{greeting[0]}}</p>
+        <p>
+            <label>
+                First 
+                <span *ngIf="!validName; else valid" class="invalid">and</span> 
+                <ng-template #valid>and</ng-template> 
+                lastname please:
+            </label>
+
+            <input [(ngModel)]='name' type="text">
+            <button (click)="saveNameCaller()">Introduce yourself</button>
+        </p>
+        <div *ngIf="whatDrink">
+            <p>Alright Mr.{{lastName}}, what can I do for you?</p>
+            <app-beverages (sendDrink)="drink=$event"></app-beverages>
+            <div *ngIf="drink !=undefined">
+                <p>One {{drink}}, coming right up!</p>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #noUser>
+        <div *ngIf="drink !=undefined; else undecided">
+            <p>{{greeting[1]}}</p>
+            <app-the-usual (continueDialogue)="whatDrink=true"  (usualDrink)="drink=$event"></app-the-usual>
+        </div>
+    <ng-template #undecided>
+        <p>{{greeting[2]}}</p>
+    </ng-template>
+
+        <app-beverages (continueDialogue)="whatDrink=true" (sendDrink)="drink=$event"></app-beverages>
+        <div *ngIf="whatDrink" >
+            <p>One {{drink}}, coming right up!</p>
+        </div>
+    </ng-template>
+
+</div>
