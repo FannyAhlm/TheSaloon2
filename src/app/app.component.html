@@ -17,7 +17,7 @@
   <svg class="talkSnipp" width="95" height="78" viewBox="0 0 95 78" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M95 0C73.1126 36.0147 41.6955 58.3135 0 78C41.8318 73.1463 62.9311 72.8391 95 78V0Z" fill="white"/>
     </svg> 
-    <button>Forget me!</button>
+    <app-forget-me (forgetMe)="forgetMe()"></app-forget-me>
     <div class="talkBubble"></div>
-    <app-dialogue></app-dialogue>
+    <app-dialogue [forgottenUser]="forgotten"></app-dialogue>
 </div>

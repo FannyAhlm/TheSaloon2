@@ -65,5 +65,11 @@ export class VisitorInfoService {
     }
   }
 
+  removeUser(){
+    localStorage.removeItem('lastname');
+    localStorage.removeItem('firstname');
+    localStorage.removeItem('theUsual');
+  }
+
 
 }

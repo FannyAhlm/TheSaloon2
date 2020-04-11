@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { VisitorInfoService } from '../visitor-info.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { VisitorInfoService } from '../visitor-info.service';
 export class DialogueComponent implements OnInit {
 
   storageService: VisitorInfoService;
+  @Input() forgottenUser;
 
   greeting: string[] = ["Howdy, stranger. Haven't seen your face around here before. What's your name?"];
   name: string = "";
